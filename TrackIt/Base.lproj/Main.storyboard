@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="f8d-cf-sap">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movies Collection View Controller-->
+        <scene sceneID="pIE-Ak-hRQ">
+            <objects>
+                <collectionViewController id="FPc-3i-xW1" customClass="MoviesCollectionViewController" customModule="TrackIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qAp-gh-h5h">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y0R-QB-nWr">
+                            <size key="itemSize" width="190" height="297"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="firstMovie" id="rav-oM-4wk" customClass="MoviesCollectionViewCell" customModule="TrackIt" customModuleProvider="target">
+                                <rect key="frame" x="10" y="74" width="190" height="297"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="190" height="297"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXe-69-nbF">
+                                            <rect key="frame" x="0.0" y="0.0" width="190" height="297"/>
+                                            <state key="normal" image="Interstellar"/>
+                                            <connections>
+                                                <action selector="goToMovie:" destination="FPc-3i-xW1" eventType="touchUpInside" id="tpz-JP-z1m"/>
+                                                <segue destination="8bd-br-oNI" kind="show" identifier="detailMovie" id="b1e-ro-2zI"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="FPc-3i-xW1" id="dat-GB-C0U"/>
+                            <outlet property="delegate" destination="FPc-3i-xW1" id="hwI-jl-AE3"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="WHL-No-884">
+                        <barButtonItem key="rightBarButtonItem" title="Add New Movie" id="vc9-Fz-8oU">
+                            <connections>
+                                <action selector="addNewMovie:" destination="FPc-3i-xW1" id="kS1-hk-5fb"/>
+                                <segue destination="FNR-rY-OSu" kind="presentation" id="r0v-Cs-vgZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wlv-UN-mTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Oj1-Fl-Non" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1581" y="896"/>
+        </scene>
+        <!--Detail Movie View Controller-->
+        <scene sceneID="lwM-jS-Ig0">
+            <objects>
+                <viewController id="8bd-br-oNI" customClass="DetailMovieViewController" customModule="TrackIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Shg-IE-w7M"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lvp-aj-T88"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LQA-k4-Xwp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Interstellar" translatesAutoresizingMaskIntoConstraints="NO" id="uKj-CG-v1A">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKj-Wa-Q7n">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="A0w-tz-dH2">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interstellar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoR-fS-Vi9">
+                                            <rect key="frame" x="230" y="105" width="140" height="36"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="30"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MGc-bA-rcO">
+                                            <rect key="frame" x="8" y="108" width="584" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="QgW-oV-1ZW"/>
+                                                <constraint firstAttribute="width" constant="584" id="XcN-Wa-slz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="30"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="watched december 4, 2014" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xj1-zK-n18">
+                                            <rect key="frame" x="196" y="146" width="209.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eoR-fS-Vi9" firstAttribute="centerX" secondItem="A0w-tz-dH2" secondAttribute="centerX" id="Oca-kc-gD7"/>
+                                        <constraint firstItem="Xj1-zK-n18" firstAttribute="centerX" secondItem="A0w-tz-dH2" secondAttribute="centerX" id="P2p-gh-Qpx"/>
+                                        <constraint firstItem="eoR-fS-Vi9" firstAttribute="top" secondItem="A0w-tz-dH2" secondAttribute="top" constant="105" id="UzQ-77-QRj"/>
+                                        <constraint firstItem="MGc-bA-rcO" firstAttribute="top" secondItem="A0w-tz-dH2" secondAttribute="top" constant="108" id="mL7-Ea-8k2"/>
+                                        <constraint firstItem="MGc-bA-rcO" firstAttribute="centerX" secondItem="A0w-tz-dH2" secondAttribute="centerX" id="pnM-Bg-ySB"/>
+                                        <constraint firstItem="Xj1-zK-n18" firstAttribute="top" secondItem="eoR-fS-Vi9" secondAttribute="bottom" constant="5" id="tA5-NH-NOG"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lvp-aj-T88" firstAttribute="top" secondItem="uKj-CG-v1A" secondAttribute="bottom" id="13K-Pj-GNT"/>
+                            <constraint firstItem="Lvp-aj-T88" firstAttribute="top" secondItem="eKj-Wa-Q7n" secondAttribute="bottom" id="Asw-yC-ea2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uKj-CG-v1A" secondAttribute="trailing" constant="-20" id="L87-NW-hyV"/>
+                            <constraint firstItem="uKj-CG-v1A" firstAttribute="top" secondItem="LQA-k4-Xwp" secondAttribute="topMargin" id="UgY-ln-jgC"/>
+                            <constraint firstItem="eKj-Wa-Q7n" firstAttribute="leading" secondItem="LQA-k4-Xwp" secondAttribute="leadingMargin" constant="-20" id="gn5-0T-9Nb"/>
+                            <constraint firstItem="eKj-Wa-Q7n" firstAttribute="top" secondItem="LQA-k4-Xwp" secondAttribute="topMargin" id="koQ-Tg-JlG"/>
+                            <constraint firstItem="uKj-CG-v1A" firstAttribute="leading" secondItem="LQA-k4-Xwp" secondAttribute="leadingMargin" constant="-20" id="mWc-PP-Bqn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eKj-Wa-Q7n" secondAttribute="trailing" constant="-20" id="rX0-2m-aRQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateWatched" destination="Xj1-zK-n18" id="OSa-YJ-2qo"/>
+                        <outlet property="movieTitle" destination="eoR-fS-Vi9" id="gps-Jb-ELd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k4K-wL-U5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2215" y="896"/>
+        </scene>
+        <!--Add Movie View Controller-->
+        <scene sceneID="AgW-xG-rkz">
+            <objects>
+                <viewController id="FNR-rY-OSu" customClass="AddMovieViewController" customModule="TrackIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1zC-gM-foT"/>
+                        <viewControllerLayoutGuide type="bottom" id="IzD-Yh-voz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gjx-TJ-n3C">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idQ-hP-DQ6">
+                                <rect key="frame" x="50" y="0.0" width="500" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="1vw-wa-MyE"/>
+                                    <constraint firstAttribute="height" constant="65" id="fY6-G2-SCb"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Add New Movie" id="Hrd-6j-M9W">
+                                        <barButtonItem key="leftBarButtonItem" id="jag-82-ucI">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JgS-tv-nRb">
+                                                <rect key="frame" x="20" y="28" width="133" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelMovie:" destination="FNR-rY-OSu" eventType="touchUpInside" id="olj-EH-lCN"/>
+                                                    <segue destination="Oj1-Fl-Non" kind="unwind" unwindAction="unwindToMovieViewCANCEL:" id="IcE-53-0x9"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Sfl-Gy-sCj">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="otP-HY-xWH">
+                                                <rect key="frame" x="369" y="28" width="111" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Done"/>
+                                                <connections>
+                                                    <segue destination="Oj1-Fl-Non" kind="unwind" unwindAction="unwindToMovieViewSAVE:" id="iwq-l6-v5B"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CFR-ow-ZuH">
+                                <rect key="frame" x="20" y="84" width="160" height="267"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="267" id="79m-Jg-hsJ"/>
+                                    <constraint firstAttribute="width" constant="160" id="8WT-al-bPa"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnO-RE-aQW">
+                                <rect key="frame" x="60" y="359" width="70" height="30"/>
+                                <state key="normal" title="edit photo"/>
+                                <connections>
+                                    <action selector="editPhoto:" destination="FNR-rY-OSu" eventType="touchUpInside" id="vcl-cj-dcE"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Write a review." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T6P-iU-qJY">
+                                <rect key="frame" x="20" y="437" width="560" height="128"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Movie Title (Required)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mZo-ov-ONh">
+                                <rect key="frame" x="188" y="124" width="392" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="392" id="hca-WG-KMq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="PC2-Ov-haT">
+                                <rect key="frame" x="20" y="334" width="560" height="266"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="266" id="HcI-2B-s23"/>
+                                    <constraint firstAttribute="width" constant="560" id="Y9m-aR-39g"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="476725589.85595298">
+                                    <!--2016-02-09 15:46:29 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="finishDateWatched:" destination="FNR-rY-OSu" eventType="touchUpOutside" id="l8X-hG-9EO"/>
+                                </connections>
+                            </datePicker>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date watched" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="suG-73-jIC">
+                                <rect key="frame" x="188" y="162" width="392" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="392" id="f0h-IM-ipW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="chooseDateWatched:" destination="FNR-rY-OSu" eventType="editingDidBegin" id="5CX-tt-2vV"/>
+                                    <action selector="chooseDateWatched:" destination="FNR-rY-OSu" eventType="touchUpInside" id="xMb-pr-rp0"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URn-IJ-iUQ">
+                                <rect key="frame" x="188" y="200" width="392" height="30"/>
+                                <state key="normal" title="Choose Date"/>
+                                <connections>
+                                    <action selector="finishChooseDate:" destination="FNR-rY-OSu" eventType="touchUpInside" id="yjo-5z-Ux7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mZo-ov-ONh" firstAttribute="trailing" secondItem="gjx-TJ-n3C" secondAttribute="trailingMargin" id="0WJ-rQ-DN9"/>
+                            <constraint firstItem="IzD-Yh-voz" firstAttribute="top" secondItem="PC2-Ov-haT" secondAttribute="bottom" id="60y-Sg-ejX"/>
+                            <constraint firstItem="CFR-ow-ZuH" firstAttribute="leading" secondItem="gjx-TJ-n3C" secondAttribute="leadingMargin" id="EDD-M5-fPa"/>
+                            <constraint firstItem="CFR-ow-ZuH" firstAttribute="top" secondItem="idQ-hP-DQ6" secondAttribute="bottom" constant="19" id="Fct-Hq-SnV"/>
+                            <constraint firstItem="EnO-RE-aQW" firstAttribute="leading" secondItem="gjx-TJ-n3C" secondAttribute="leadingMargin" constant="40" id="GXY-32-NaC"/>
+                            <constraint firstItem="mZo-ov-ONh" firstAttribute="leading" secondItem="CFR-ow-ZuH" secondAttribute="trailing" constant="8" id="MUM-il-jT5"/>
+                            <constraint firstItem="suG-73-jIC" firstAttribute="top" secondItem="mZo-ov-ONh" secondAttribute="bottom" constant="8" id="Mmf-jC-nxf"/>
+                            <constraint firstItem="idQ-hP-DQ6" firstAttribute="centerX" secondItem="gjx-TJ-n3C" secondAttribute="centerX" id="NUo-RT-PKZ"/>
+                            <constraint firstItem="PC2-Ov-haT" firstAttribute="trailing" secondItem="gjx-TJ-n3C" secondAttribute="trailingMargin" id="Oum-se-bdn"/>
+                            <constraint firstItem="mZo-ov-ONh" firstAttribute="top" secondItem="idQ-hP-DQ6" secondAttribute="bottom" constant="59" id="PPn-AY-3Yi"/>
+                            <constraint firstItem="URn-IJ-iUQ" firstAttribute="top" secondItem="suG-73-jIC" secondAttribute="bottom" constant="8" id="QEg-PN-IaB"/>
+                            <constraint firstItem="idQ-hP-DQ6" firstAttribute="top" secondItem="gjx-TJ-n3C" secondAttribute="topMargin" id="aMI-jb-c1w"/>
+                            <constraint firstItem="URn-IJ-iUQ" firstAttribute="trailing" secondItem="gjx-TJ-n3C" secondAttribute="trailingMargin" id="beI-JZ-VKf"/>
+                            <constraint firstItem="suG-73-jIC" firstAttribute="trailing" secondItem="gjx-TJ-n3C" secondAttribute="trailingMargin" id="hzo-Eo-vo6"/>
+                            <constraint firstItem="URn-IJ-iUQ" firstAttribute="leading" secondItem="CFR-ow-ZuH" secondAttribute="trailing" constant="8" id="i8D-cE-aXN"/>
+                            <constraint firstItem="suG-73-jIC" firstAttribute="leading" secondItem="CFR-ow-ZuH" secondAttribute="trailing" constant="8" id="nKU-jX-3E5"/>
+                            <constraint firstItem="EnO-RE-aQW" firstAttribute="top" secondItem="CFR-ow-ZuH" secondAttribute="bottom" constant="8" id="nRC-ii-1hk"/>
+                            <constraint firstItem="PC2-Ov-haT" firstAttribute="leading" secondItem="gjx-TJ-n3C" secondAttribute="leadingMargin" id="tjh-B4-Nig"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="PC2-Ov-haT" id="IBQ-0Y-ueX"/>
+                        <outlet property="dateWatchedField" destination="suG-73-jIC" id="vnG-sg-wVa"/>
+                        <outlet property="movieTitleField" destination="mZo-ov-ONh" id="aON-Uh-oDh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dT6-KI-w2X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2830" y="896"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4cS-0g-Lr0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f8d-cf-sap" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2jU-oM-FrG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FPc-3i-xW1" kind="relationship" relationship="rootViewController" id="W5E-0T-l7k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w3h-Ty-6uY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="936" y="896"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Interstellar" width="260" height="406"/>
+    </resources>
+</document>
